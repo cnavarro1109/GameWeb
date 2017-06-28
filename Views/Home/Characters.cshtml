@@ -5,7 +5,9 @@
 
 @using (Html.BeginForm("FightEnemy","Home",FormMethod.Post)){
 
-@Html.TextBoxFor(model => model.alien.alienName, new { @class = "form-control hide" })
+@Html.HiddenFor(model => model.alien.alienName, new { @class = "form-control" })
+@Html.HiddenFor(model => model.alien.healthPoints, new { @class = "form-control" })
+@Html.HiddenFor(model => model.hero.heroLives, new { @class = "form-control" })
 
 <ul style="list-style: none;">
     <li><img width="100px" height="100px" src=@Model.drawing.alienDraw /></li>
@@ -23,6 +25,7 @@
     }
     </select>
 </div>
+
 
 <input type="Submit" value="Save"/>
 
