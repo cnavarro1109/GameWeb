@@ -8,3 +8,12 @@
         <button type="submit">Begin Game</button>
     </div>
 }
+
+
+<h1>WINNERS!!</h1>
+
+<ul>
+@foreach(var user in Model.scoreboard){
+    <li>@user.name</li>
+}
+</ul>

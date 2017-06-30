@@ -13,8 +13,14 @@ namespace GameWeb.Controllers
         CharactersViewModel model = new CharactersViewModel();
         public IActionResult Index()
         {
-
             CharactersViewModel model = new CharactersViewModel();
+
+            //Get the names of the players that won this game
+            using(var context = new EFCoreGameWebContext())
+            {    
+                model.scoreboard = context.ScoreBoards.ToList();
+            }
+
             model.hero = new HeroModel();
 
             return View(model);
@@ -23,9 +29,9 @@ namespace GameWeb.Controllers
         [HttpPost]
         public IActionResult BeginGame(CharactersViewModel model)
         {
+        
 
             model.alien = new AlienModel();
-            model.hero = new HeroModel();
 
             //Default Values
             model.alien.alienName = "Patrick";
@@ -156,7 +162,27 @@ namespace GameWeb.Controllers
                 {
                     return View("Characters", ChangeEnemy(model));
                 }else{
-                     model.gameStatus = string.Format("Dude! You just won!");
+
+                    //Save the name of the player that just won
+                    ScoreBoard scoreBoardModel = new ScoreBoard();
+                    scoreBoardModel.name = model.hero.heroName;
+
+                    using(var context = new EFCoreGameWebContext())
+                    {
+                        context.Add(scoreBoardModel);
+                        context.SaveChanges();
+                    }
+
+                    //  using (var context = new EFCoreWebDemoContext())
+                    // {
+                    //     context.Add(author);
+                    //     await context.SaveChangesAsync();
+                    //     return RedirectToAction("Index");
+                    // }
+
+                    model.gameStatus = string.Format("Dude! You just won!");
+
+                    
                     return View(model);
                 }
             }
