@@ -10274,16 +10274,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Carlos/Desktop/GameWeb-master/GameWeb.csproj",
+      "projectUniqueName": "/Users/Carlos/Desktop/SACA-Intermediate/GameWeb/GameWeb.csproj",
       "projectName": "GameWeb",
-      "projectPath": "/Users/Carlos/Desktop/GameWeb-master/GameWeb.csproj",
-      "outputPath": "/Users/Carlos/Desktop/GameWeb-master/obj/",
+      "projectPath": "/Users/Carlos/Desktop/SACA-Intermediate/GameWeb/GameWeb.csproj",
+      "outputPath": "/Users/Carlos/Desktop/SACA-Intermediate/GameWeb/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/GameWeb.dll": "/Users/Carlos/Desktop/GameWeb-master/bin/placeholder/netcoreapp1.1/GameWeb.dll"
+        "lib/netcoreapp1.1/GameWeb.dll": "/Users/Carlos/Desktop/SACA-Intermediate/GameWeb/bin/placeholder/netcoreapp1.1/GameWeb.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {

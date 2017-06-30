@@ -173,13 +173,6 @@ namespace GameWeb.Controllers
                         context.SaveChanges();
                     }
 
-                    //  using (var context = new EFCoreWebDemoContext())
-                    // {
-                    //     context.Add(author);
-                    //     await context.SaveChangesAsync();
-                    //     return RedirectToAction("Index");
-                    // }
-
                     model.gameStatus = string.Format("Dude! You just won!");
 
                     
