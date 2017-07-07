@@ -116,7 +116,7 @@ namespace GameWeb.Controllers
 
 
         [HttpPost]
-        public IActionResult FightEnemy(CharactersViewModel model)
+        public JsonResult FightEnemy(CharactersViewModel model)
         {
 
             /*
@@ -153,14 +153,16 @@ namespace GameWeb.Controllers
             if (model.hero.heroLives <= 0)
             {
                 model.gameStatus = string.Format("Dude! You just died!");
-                return View(model);
+                return Json(model);
+                //return View(model);
             }
             else
             {
                 model = ChangeEnemy(model);
                 if(model.alien.alienName != "End")
                 {
-                    return View("Characters", ChangeEnemy(model));
+                    //return View("Characters", ChangeEnemy(model));
+                    return Json(ChangeEnemy(model));
                 }else{
 
                     //Save the name of the player that just won
@@ -174,13 +176,12 @@ namespace GameWeb.Controllers
                     }
 
                     model.gameStatus = string.Format("Dude! You just won!");
-
-                    
-                    return View(model);
+                    //return View(model);
+                    return Json(model);
                 }
             }
 
-
+           return Json("{name: 'value1'}");
         }
 
     }
